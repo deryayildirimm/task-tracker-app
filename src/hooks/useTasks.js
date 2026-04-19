@@ -6,6 +6,7 @@ import {
   deleteTask,
   updateTask,
 } from "../helpers/taskHelpers";
+import { UI_TEXT } from "../constants/uiText";
 
 export function useTasks() {
   const [tasks, setTasks] = useState(() => {
@@ -17,6 +18,7 @@ export function useTasks() {
   const [editId, setEditId] = useState(null);
   const [error, setError] = useState("");
 
+  // LocalStorage sync
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -31,6 +33,7 @@ export function useTasks() {
       return;
     }
 
+    // Güncelleme
     if (editId !== null) {
       const updatedTasks = updateTask(tasks, editId, inputValue);
       setTasks(updatedTasks);
@@ -40,6 +43,7 @@ export function useTasks() {
       return;
     }
 
+    // Yeni ekleme
     const newTask = createTask(inputValue);
     const updatedTasks = addTask(tasks, newTask);
 
@@ -47,21 +51,22 @@ export function useTasks() {
     setInputValue("");
     setError("");
   };
-    const handleDelete = (id) => {
-        const confirmDelete = window.confirm("Bu görevi silmek istediğine emin misin?");
 
-        if (!confirmDelete) return;
+  const handleDelete = (id) => {
+    const confirmDelete = window.confirm(UI_TEXT.DELETE_CONFIRM);
 
-        const updatedTasks = deleteTask(tasks, id);
-        setTasks(updatedTasks);
+    if (!confirmDelete) return;
 
-        if (editId === id) {
-            setEditId(null);
-            setInputValue("");
+    const updatedTasks = deleteTask(tasks, id);
+    setTasks(updatedTasks);
+
+    if (editId === id) {
+      setEditId(null);
+      setInputValue("");
     }
 
     setError("");
-    };
+  };
 
   const handleEdit = (task) => {
     setInputValue(task.title);

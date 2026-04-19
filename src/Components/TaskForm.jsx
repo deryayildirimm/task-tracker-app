@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
+import { UI_TEXT } from "../constants/uiText";
 
 function TaskForm({ inputValue, setInputValue, handleSubmit, isEditing }) {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    // Düzenleme modunda input'a odaklan
     if (isEditing) {
       inputRef.current.focus();
     }
@@ -17,7 +17,7 @@ function TaskForm({ inputValue, setInputValue, handleSubmit, isEditing }) {
           ref={inputRef}
           type="text"
           className="form-control task-form-input"
-          placeholder="Bir görev giriniz..."
+          placeholder={UI_TEXT.INPUT_PLACEHOLDER}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
@@ -28,7 +28,7 @@ function TaskForm({ inputValue, setInputValue, handleSubmit, isEditing }) {
           type="submit"
           className={`btn ${isEditing ? "btn-warning" : "btn-primary"} task-form-button`}
         >
-          {isEditing ? "Güncelle" : "Ekle"}
+          {isEditing ? UI_TEXT.UPDATE_BUTTON : UI_TEXT.ADD_BUTTON}
         </button>
       </div>
     </form>

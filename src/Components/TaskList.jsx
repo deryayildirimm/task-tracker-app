@@ -1,8 +1,9 @@
 import TaskItem from "./TaskItem";
+import { UI_TEXT } from "../constants/uiText";
 
 function TaskList({ tasks, handleDelete, handleEdit }) {
   if (tasks.length === 0) {
-    return <p className="empty-state">Henüz görev eklenmedi.</p>;
+    return <p className="empty-state">{UI_TEXT.EMPTY_STATE}</p>;
   }
 
   return (

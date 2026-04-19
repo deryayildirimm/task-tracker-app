@@ -2,6 +2,7 @@ import TaskForm from "../Components/TaskForm";
 import TaskList from "../Components/TaskList";
 import ErrorMessage from "../Components/ErrorMessage";
 import { useTasks } from "../hooks/useTasks";
+import { UI_TEXT } from "../constants/uiText";
 
 function Home() {
   const {
@@ -23,12 +24,10 @@ function Home() {
             <div className="card border-0 shadow-lg app-card">
               <div className="card-body p-4 p-md-5">
                 <div className="text-center mb-4">
-                  <h1 className="fw-bold app-title">Task Tracker App</h1>
-                  <p className="text-muted mb-2">
-                    Görev ekleme, listeleme, güncelleme ve silme uygulaması
-                  </p>
+                  <h1 className="fw-bold app-title">{UI_TEXT.APP_TITLE}</h1>
+                  <p className="text-muted mb-2">{UI_TEXT.APP_DESCRIPTION}</p>
                   <span className="badge rounded-pill text-bg-dark px-3 py-2">
-                    Toplam Görev: {tasks.length}
+                    {UI_TEXT.TOTAL_TASKS} {tasks.length}
                   </span>
                 </div>
 
