@@ -64,10 +64,10 @@ npm run test
 
 
 <p align="center">
-  <img src="../../software_persona/task-tracker-app/src/screenshots/project-home.png" width="250"/>
-  <img src="../../software_persona/task-tracker-app/src/screenshots/project-validation.png" width="250"/>
-  <img src="../../software_persona/task-tracker-app/src/screenshots/project-delete.png" width="250"/>
-  <img src="../../software_persona/task-tracker-app/src/screenshots/project-list.png" width="250"/>
+  <img src="./screenshots/project-home.png" width="250"/>
+  <img src="./screenshots/project-validation.png" width="250"/>
+  <img src="./screenshots/project-list.png" width="250"/>
+  <img src="./screenshots/project-delete.png" width="250"/>
   
 </p>
 
@@ -75,7 +75,7 @@ npm run test
 
 ## 🌐 Canlı Demo
 
-👉 Netlify linki buraya gelecek
+[TASK TRACKER APP](https://task-tracker-d.netlify.app/)
 
 ---
 

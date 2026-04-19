@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: Frontend CI
 
 on:
   push:
@@ -6,25 +6,32 @@ on:
   pull_request:
     branches: ["main"]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: frontend-ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Repository kodlarini al
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v5
 
-      - name: Node.js kur
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      - name: Bagimliliklari yukle
+      - name: Install dependencies
         run: npm ci
 
-      - name: Testleri calistir
+      - name: Run tests
         run: npm run test
 
-      - name: Build al
+      - name: Build project
         run: npm run build
