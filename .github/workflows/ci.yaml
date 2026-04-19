@@ -1,0 +1,30 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository kodlarini al
+        uses: actions/checkout@v4
+
+      - name: Node.js kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Bagimliliklari yukle
+        run: npm ci
+
+      - name: Testleri calistir
+        run: npm run test
+
+      - name: Build al
+        run: npm run build

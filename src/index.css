@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  min-height: 100vh;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+}
+
+.app-card {
+  border-radius: 20px;
+}
+
+.app-title {
+  font-size: 2rem;
+}
+
+.task-form-input {
+  height: 48px;
+  border-radius: 12px;
+}
+
+.task-form-button {
+  min-width: 120px;
+  border-radius: 12px;
+}
+
+.task-item {
+  border: none;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  padding: 16px 18px;
+  background-color: #f8f9fa;
+  transition: transform 0.2s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+}
+
+.task-title {
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.empty-state {
+  text-align: center;
+  color: #6c757d;
+  padding: 20px 0;
+}
